@@ -48,7 +48,8 @@ class CharList extends Component {
             }
             return (
                 <li className="char__item"
-                    key={items.id}>
+                    key={items.id}
+                    onClick={() => this.props.onCharSelected(items.id)}>
                     <img src={items.thumbnail} alt={items.name} style={imgStyle}/>
                     <div className="char__name">{items.name}</div>
                 </li>
