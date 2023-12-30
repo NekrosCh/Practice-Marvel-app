@@ -1,4 +1,5 @@
 import Spinner from '../spinner/Spinner';
+import PropTypes from 'prop-types';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import MarvelService from '../../services/MarvelService';
 import Skeleton from '../skeleton/Skeleton';
@@ -25,6 +26,9 @@ class CharInfo extends Component {
         }
     }
 
+
+
+
     updateChar = () => {
         const {charId} = this.props;
         if(!charId) {
@@ -35,6 +39,7 @@ class CharInfo extends Component {
             .getCharacter(charId)
             .then(this.onCharLoaded)
             .catch(this.onError);
+
     }
 
     onCharLoaded = (char) => {
@@ -103,7 +108,7 @@ const View = ({char}) => {
             </div>
             <div className="char__comics">Comics:</div>
             <ul className="char__comics-list">
-                {comics.lenght > 0 ? null : 'No comics with this character'}
+                {comics.length > 0 ? null : 'No comics with this character'}
                 {
                     comics.map((item, i) => {
                         if (i > 9) return;
@@ -118,5 +123,9 @@ const View = ({char}) => {
         </>
     )
 } 
+
+CharInfo.propTypes = {
+    charId: PropTypes.number
+}
 
 export default CharInfo;
