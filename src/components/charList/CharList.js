@@ -19,10 +19,10 @@ class CharList extends Component {
     marvelService = new MarvelService();
 
     componentDidMount() {
-        // this.onRequest();
+        this.onRequest();
     }
     componentWillUnmount() {
-        this.onRequest();
+        // this.onRequest();
     }
 
     onRequest = (offset) => {
